@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fast_food
+    username: postgres
+    password: 690
+  application:
+    name: PRODUCT-SERVICE
+  jpa:
+    hibernate:
+      ddl-auto: create
+  sql:
+    init:
+      mode: always
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  cache:
+    type: redis
+    cache-names: "users"
+    redis:
+      cache-null-values: true
+      key-prefix: cache_
+      use-key-prefix: true
+      enable-statistics: true
+  redis:
+    host: localhost
+    port: 6379
+#    password: 13205
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+
